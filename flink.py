@@ -98,7 +98,6 @@ CREATE TABLE IF NOT EXISTS order_source (
    'table-name' = 'orders'
  );
 """
-
 # Execute the SQL to create the sources
 table_env.execute_sql(customer_source)
 table_env.execute_sql(order_source)
@@ -141,11 +140,11 @@ CREATE TABLE order_enriched_jdbc_sink (
  )
  WITH (
    'connector' = 'jdbc',  -- Use JDBC connector
-   'url' = 'jdbc:postgresql://localhost:5432/postgres', 
+   'url' = 'jdbc:postgresql://localhost:5432/truck_delivery_data', 
    'table-name' = 'order_enriched', 
    'driver' = 'org.postgresql.Driver',
-   'username' = 'postgres', 
-   'password' = 'postgres', 
+   'username' = 'root', 
+   'password' = 'ashraf', 
    'sink.buffer-flush.max-rows' = '1000',  -- Adjust batch size as needed
    'sink.buffer-flush.interval' = '2s'  -- Adjust flush interval as needed
  );
@@ -155,6 +154,7 @@ CREATE TABLE order_enriched_jdbc_sink (
 table_env.execute_sql(jdbc_sink)
 
 
+print('Here')
 table_env.execute_sql("""
     INSERT INTO order_enriched_jdbc_sink
     SELECT DISTINCT

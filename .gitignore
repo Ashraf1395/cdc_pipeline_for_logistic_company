@@ -1,0 +1,3 @@
+jar-files/
+spark-3.4.2-bin-hadoop3/
+*.tgz

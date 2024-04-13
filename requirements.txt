@@ -1,4 +1,6 @@
 flask
 flask_sqlalchemy
 psycopg2
-apache-flink
+pyspark==3.4.2
+faker
+jupyter

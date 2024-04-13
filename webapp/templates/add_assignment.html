@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Customer</title>
+</head>
+<body>
+    <h1>Add Customer</h1>
+    <form id="customerForm">
+        <label for="customer_name">Name:</label><br>
+        <input type="text" id="customer_name" name="customer_name"><br>
+        <label for="customer_address">Address:</label><br>
+        <input type="text" id="customer_address" name="customer_address"><br>
+        <!-- Add more input fields as needed -->
+        <button type="submit">Add Customer</button>
+    </form>
+    <hr>
+    <h2>Customers</h2>
+    <ul id="customerList">
+        <!-- Customers will be dynamically added here -->
+    </ul>
+    <script src="../static/customers.js"></script>
+</body>
+</html>

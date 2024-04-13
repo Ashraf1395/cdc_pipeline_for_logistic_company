@@ -1,0 +1,16 @@
+assignment_id,order_id,driver_id,assigned_date,assigned_status,assigned_address,assigned_city,assigned_state,assigned_zip_code
+05b55a90-f222-4656-ba59-e1a16c931e11,133ef7bb-9dde-437d-8c7b-197194b452c5,63075629-5729-414e-ab55-5280a9bf235d,2024-04-12 09:14:33,Completed,76148 Danielle Falls Suite 786,Dominguezburgh,Alabama,84694
+09b53935-9136-4a97-900c-823c9d1c23b3,27098ae9-cc9d-427c-956e-0272d837989c,18d0e74d-2422-4fba-87cd-0a5fdc2f94a0,2024-04-12 18:42:10,Completed,7167 Tyler Manors,Stephanieland,Texas,31407
+f75181c6-fb3c-4d52-aaec-692a534c46e2,16fe9d2a-88db-4c10-a963-781419ac208a,63075629-5729-414e-ab55-5280a9bf235d,2024-04-13 05:49:40,Pending,818 Rogers Lake,New Michael,Massachusetts,54893
+53fc9036-3d95-454d-bf2a-83d2600bf4c5,27098ae9-cc9d-427c-956e-0272d837989c,18d0e74d-2422-4fba-87cd-0a5fdc2f94a0,2024-04-12 19:55:53,Pending,7167 Tyler Manors,Stephanieland,Texas,31407
+e098006d-acfb-4dca-9fd6-8dcd38c74a6b,f062b1f8-c0c2-4549-9cb6-183bd86949b0,63075629-5729-414e-ab55-5280a9bf235d,2024-04-12 17:33:11,Completed,52056 Michael Club Apt. 535,North Stephenchester,Idaho,07968
+e439bc57-36dc-4831-8510-080c7a3c9648,535403e4-f388-4c15-901e-dacc29d55380,898514ab-bff7-4dce-9123-7bb3dc8a1a64,2024-04-12 23:33:33,Pending,15776 Erica Flats Suite 240,Woodfurt,Hawaii,89036
+6c36f3ee-26ff-4838-85d6-81de572ea0e3,133ef7bb-9dde-437d-8c7b-197194b452c5,898514ab-bff7-4dce-9123-7bb3dc8a1a64,2024-04-12 17:10:07,Pending,76148 Danielle Falls Suite 786,Dominguezburgh,Alabama,84694
+c91e3d7a-c61a-442c-bfc0-69927a047967,916bd3b6-6114-469a-a089-5bb66e366a2b,63075629-5729-414e-ab55-5280a9bf235d,2024-04-12 11:13:40,Completed,3915 Walter Ville,Campbellview,Arkansas,51749
+1a3a8783-d6ba-4301-80c6-ee65a20a2db1,9e0b5c7e-50eb-4e06-8620-1e79681df552,898514ab-bff7-4dce-9123-7bb3dc8a1a64,2024-04-13 01:45:05,In Progress,163 Abigail Meadow Suite 116,Tammyfurt,Louisiana,45199
+b93de070-d605-40a0-a072-82b00a9d58bf,674fc73d-49b9-4fb5-a6c6-9c4f9a774c5d,63075629-5729-414e-ab55-5280a9bf235d,2024-04-12 22:33:12,Completed,90500 Sara Harbors,Mendezfurt,Kentucky,16607
+eb915b1f-b8e2-4321-a71d-53241877c249,916bd3b6-6114-469a-a089-5bb66e366a2b,898514ab-bff7-4dce-9123-7bb3dc8a1a64,2024-04-12 07:34:39,Pending,3915 Walter Ville,Campbellview,Arkansas,51749
+13873c56-5486-40f2-9b78-0b8c347a7322,3c1c7101-3137-4665-9b90-7569a1da8326,898514ab-bff7-4dce-9123-7bb3dc8a1a64,2024-04-13 06:17:51,In Progress,14762 Kevin Way Suite 678,East Amandatown,Michigan,51753
+aaf59314-84fd-4ec9-9813-90bea2a535cd,c4a73099-a0bd-4642-ac02-b86601d8c2c2,18d0e74d-2422-4fba-87cd-0a5fdc2f94a0,2024-04-13 05:42:05,Completed,5019 Julie Overpass Suite 779,North Ashleyhaven,Mississippi,07244
+0236daf1-a28b-4108-96be-2fd66d9f927e,79aa00ab-2c48-4580-bd85-9285179ce35c,d81dbab7-ffed-4dd8-9da6-00e2f2ee259a,2024-04-13 06:38:14,In Progress,6741 Hobbs Trail,Jeremystad,Kansas,85715
+a82cfdb3-7a98-4122-b461-81d0bce63e03,9e0b5c7e-50eb-4e06-8620-1e79681df552,d81dbab7-ffed-4dd8-9da6-00e2f2ee259a,2024-04-12 07:45:30,Pending,163 Abigail Meadow Suite 116,Tammyfurt,Louisiana,45199

@@ -34,6 +34,10 @@
 ;   --config-folder configfolder/  \
 ;   --props configfolder/source.properties
 
+========================================================
+With Multitablestreamer
+========================================================
+
 
 spark-submit \
     --class org.apache.hudi.utilities.streamer.HoodieMultiTableStreamer \
@@ -41,8 +45,8 @@ spark-submit \
     --properties-file spark-config.properties \
     --master 'local[*]' \
     --executor-memory 1g \
-    --jars jar-files/hudi-extensions-0.1.0-SNAPSHOT-bundled.jar,jar/hudi-java-client-0.14.0.jar \
-     jar/hudi-utilities-slim-bundle_2.12-0.14.0.jar \
+    --jars jar-files/hudi-extensions-0.1.0-SNAPSHOT-bundled.jar,jar-files/hudi-java-client-0.14.0.jar \
+     jar-files/hudi-utilities-slim-bundle_2.12-0.14.0.jar \
     --table-type COPY_ON_WRITE \
     --op UPSERT \
     --enable-sync \
@@ -55,23 +59,15 @@ spark-submit \
     --source-ordering-field _event_origin_ts_ms \
     --base-path-prefix 's3a://warehouse/database=default/' \
     --target-table orders,customers \
-    --config-folder configfolder/ \
-    --props configfolder/source.properties
-
-
-
-
-
-
-========================================================
-With OneTable
-========================================================
-DELETE FROM public.sales
-WHERE salesid = 1;
+    --config-folder config/ \
+    --props config/source.properties
 
 
 ========================================================
 With METADATA AND INDEX
+========================================================
+========================================================
+With Deltastreamer
 ========================================================
 
 spark-submit \
@@ -80,8 +76,8 @@ spark-submit \
     --properties-file spark-config.properties \
     --master 'local[*]' \
     --executor-memory 1g \
-    --jars jar-files/hudi-extensions-0.1.0-SNAPSHOT-bundled.jar,jar/hudi-java-client-0.14.0.jar \
-     jar/hudi-utilities-slim-bundle_2.12-0.14.0.jar \
+    --jars jar-files/hudi-extensions-0.1.0-SNAPSHOT-bundled.jar,jar-files/hudi-java-client-0.14.0.jar \
+     jar-files/hudi-utilities-slim-bundle_2.12-0.14.0.jar \
     --table-type COPY_ON_WRITE \
     --target-base-path 's3a://warehouse/database=default/table_name=orders_single'  \
     --target-table orders \

@@ -1,4 +1,7 @@
 #!/bin/bash
+SPARK_HOME=spark-3.4.2-bin-hadoop3
+PATH=$PATH:$SPARK_HOME/bin
+
 table_name="$1"
 function spark-job(){
     local table_name="$1"  # Assign the provided table name to a local variable

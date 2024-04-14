@@ -15,9 +15,6 @@
 ;   --props file:///workspaces/apache-hudi-delta-streamer-labs/E3/configfolder/source.properties
 
 
-
-
-
 ; spark-submit \
 ;   --class org.apache.hudi.utilities.deltastreamer.HoodieMultiTableDeltaStreamer \
 ;   --packages org.apache.hudi:hudi-spark3.4-bundle_2.12:0.14.0 \
@@ -79,27 +76,24 @@ spark-submit \
     --jars jar-files/hudi-extensions-0.1.0-SNAPSHOT-bundled.jar,jar-files/hudi-java-client-0.14.0.jar \
      jar-files/hudi-utilities-slim-bundle_2.12-0.14.0.jar \
     --table-type COPY_ON_WRITE \
-    --target-base-path 's3a://warehouse/database=default/table_name=orders_single'  \
-    --target-table orders \
+    --target-base-path 's3a://warehouse/bronze/table_name=silver_customers'  \
+    --target-table silver_customers \
     --op UPSERT \
     --enable-sync \
     --enable-hive-sync \
     --sync-tool-classes 'io.onetable.hudi.sync.OneTableSyncTool' \
     --source-limit 4000000 \
-    --source-class org.apache.hudi.utilities.sources.debezium.PostgresDebeziumSource \
-    --payload-class org.apache.hudi.common.model.debezium.PostgresDebeziumAvroPayload \
+    --source-class org.apache.hudi.utilities.sources.HoodieIncrSource \
     --min-sync-interval-seconds 10 \
     --continuous \
     --source-ordering-field _event_origin_ts_ms \
-    --hoodie-conf bootstrap.servers=localhost:7092 \
-    --hoodie-conf schema.registry.url=http://localhost:8081 \
-    --hoodie-conf hoodie.deltastreamer.schemaprovider.registry.url=http://localhost:8081/subjects/hive.public.orders-value/versions/latest \
-    --hoodie-conf hoodie.deltastreamer.source.kafka.value.deserializer.class=io.confluent.kafka.serializers.KafkaAvroDeserializer \
-    --hoodie-conf hoodie.deltastreamer.source.kafka.topic=hive.public.orders \
-    --hoodie-conf auto.offset.reset=earliest \
-    --hoodie-conf hoodie.datasource.write.recordkey.field=order_id \
-    --hoodie-conf hoodie.datasource.write.partitionpath.field=order_date \
+    --transformer-class org.apache.hudi.utilities.transform.SqlQueryBasedTransformer \
+    --hoodie-conf hoodie.streamer.transformer.sql.file=join.sql \
+    --hoodie-conf hoodie.datasource.write.recordkey.field=customer_id \
+    --hoodie-conf 'hoodie.datasource.write.partitionpath.field=' \
     --hoodie-conf hoodie.datasource.write.precombine.field=_event_origin_ts_ms \
+    --hoodie-conf 'hoodie.streamer.source.hoodieincr.missing.checkpoint.strategy=READ_UPTO_LATEST_COMMIT' \
+    --hoodie-conf 'hoodie.streamer.source.hoodieincr.path=s3a://warehouse=default/table_name=customers' \
     --hoodie-conf 'hoodie.onetable.formats.to.sync=DELTA,ICEBERG' \
     --hoodie-conf 'hoodie.onetable.target.metadata.retention.hr=168' \
     --hoodie-conf 'hoodie.metadata.index.async=true' \
@@ -108,9 +102,6 @@ spark-submit \
     --hoodie-conf 'hoodie.datasource.hive_sync.metastore.uris=thrift://localhost:9083' \
     --hoodie-conf 'hoodie.datasource.hive_sync.mode=hms' \
     --hoodie-conf 'hoodie.datasource.hive_sync.enable=true' \
-    --hoodie-conf 'hoodie.datasource.hive_sync.database=default' \
-    --hoodie-conf 'hoodie.datasource.hive_sync.table=orders' \
-    --hoodie-conf 'hoodie.datasource.write.hive_style_partitioning=true'
 
 
     ; --source-ordering-field impresssiontime \
@@ -158,3 +149,8 @@ CREATE TABLE iceberg_db.ice_sales USING ICEBERG LOCATION 's3a://warehouse/databa
 
 
 
+
+
+spark-submit \
+    -- class org.apache.hudi.utilities.streamer/HoodieStreamer \
+    -- packages 'org.apache.hud:hudi-spark3.4-bundle_2.12:0.14.0,'
